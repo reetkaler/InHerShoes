@@ -4,10 +4,10 @@ const storyText = document.getElementById('story-text');
 const playerInput = document.getElementById('player-input');
 const submitButton = document.getElementById('submit-button');
 const feedbackText = document.getElementById('feedback-text');
+const scenarioText = document.getElementById("scenario-text");
 
 
-
-let currentScenarioIndex = 0;
+let currentScenarioIndex = 1;
 
 const scenarios = [
   {
@@ -26,7 +26,6 @@ const scenarios = [
     feedback: "This response addresses the issue directly and sets boundaries, promoting a respectful workplace."
   }
 ];
-
 
 // Show the game screen and hide the title screen
 
@@ -79,6 +78,7 @@ document.addEventListener("keydown", (event) => {
 
 //checks if player has collided with NPC
 function checkCollision() {
+    const npc = document.querySelector(".npc");
     const playerRect = player.getBoundingClientRect();
     const npcRect = npc.getBoundingClientRect();
 
@@ -88,23 +88,30 @@ function checkCollision() {
         playerRect.top < npcRect.bottom &&
         playerRect.bottom > npcRect.top
     ) {
-        //Clls the Load Scenario the event
+        //Calls the Load Scenario the event
+        console.log("Collided"); 
         loadScenario();
+        
     }
 }
 
 // Load the current scenario
 function loadScenario() {
+  const scenarioText = document.querySelector(".scenario-text")
   if (currentScenarioIndex < scenarios.length) {
-    storyText.textContent = scenarios[currentScenarioIndex].story;
-    playerInput.value = '';
-    feedbackText.textContent = '';
+    //seoutputs the story of the scenario text 
+    scenarioText.innerText = scenarios[currentScenarioIndex].story;
   } else {
+    //this is if player has run through all the scenarios. 
     storyText.textContent = "Congratulations! You've completed all scenarios.";
     playerInput.style.display = 'none';
     submitButton.style.display = 'none';
   }
 }
+//Need to ask user for input, and add in the next button
+//users input replaces the story text
+//user's response recorded. 
+
 
 // Check the player's response
 function checkResponse() {

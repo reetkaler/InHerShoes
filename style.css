@@ -25,11 +25,13 @@
 
 /* Centered Image Styles */
 #centered-image img {
-  width: 300px; /* Adjust as needed */
+  width: 1000px; /* Adjust as needed */
   height: auto;
   border-radius: 10px; /* Optional: Adds rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
   margin-bottom: 20px; /* Space between the image and the title */
+  top: 50%;
+  left: 50%;
 }
 
 #title-screen h1 {
@@ -121,6 +123,16 @@
 
 #npc {
   background-color: red;
+}
+
+#scenario-box {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
 }
 
 /* Hide Game Container Initially */

@@ -15,3 +15,32 @@
     top: 0px; 
     left: 0px;
 }
+
+.npc {
+    position: relative;
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+}
+
+.one {
+    top: 100px;
+    left: 400px;
+    background-color: red;
+}
+
+.two {
+    top: -100px;
+    left: 800px;
+    background-color: orange;
+}
+.three {
+    top: 10px;
+    left: 1100px;
+    background-color: yellow;
+}
+.four {
+    top: 100px;
+    left: 600px;
+    background-color: indianred;
+}
