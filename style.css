@@ -1,0 +1,148 @@
+/* Title Screen Styles */
+#title-screen {
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/img/titleBg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* Light text color for better contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow to text for readability */
+}
+
+/* Logo Styles */
+#logo {
+  width: 150px; /* Adjust as needed */
+  position: absolute;
+  top: 20px; /* Distance from the top */
+  left: 50%;
+  transform: translateX(-50%); /* Center the logo horizontally */
+}
+
+/* Centered Image Styles */
+#centered-image img {
+  width: 300px; /* Adjust as needed */
+  height: auto;
+  border-radius: 10px; /* Optional: Adds rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
+  margin-bottom: 20px; /* Space between the image and the title */
+}
+
+#title-screen h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+#description {
+  font-size: 1.2rem;
+  margin: 20px auto;
+  max-width: 600px;
+  line-height: 1.6;
+  color: #fff; /* Light text color for better contrast */
+}
+
+
+
+/* Game Container Styles */
+#game-container {
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#story-text {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+#player-input {
+  width: 100%;
+  height: 100px;
+  padding: 10px;
+  font-size: 1rem;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#submit-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#submit-button:hover {
+  background-color: #0056b3;
+}
+
+#feedback-text {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #d9534f;
+}
+
+/* Task Box Styles */
+#task-box {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 200px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+  color: white;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  display: none; /* Hidden by default */
+}
+
+/* Player and NPC Styles */
+#player, #npc {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  position: absolute;
+  top: 225px; /* Start in the middle */
+  left: 225px;
+  display: none; /* Hidden by default */
+}
+
+#player {
+  background-color: green;
+}
+
+#npc {
+  background-color: red;
+}
+
+/* Hide Game Container Initially */
+.hidden {
+  display: none;
+}
+
+/* Start Game Button as an Image */
+#start-button {
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin-top: 20px; /* Space above the button */
+}
+
+#start-button img {
+  width: 200px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+}
+
+#start-button img:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
