@@ -13,23 +13,26 @@
   color: #fff; /* Light text color for better contrast */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow to text for readability */
 }
-
+/*office rectangles*/
+#office-obj{
+  
+}
 /* Logo Styles */
 #logo {
-  width: 150px; /* Adjust as needed */
+  width: 300px; /* Adjust as needed */
   position: absolute;
-  top: 20px; /* Distance from the top */
+  top: -50px; /* Distance from the top */
   left: 50%;
   transform: translateX(-50%); /* Center the logo horizontally */
 }
 
 /* Centered Image Styles */
 #centered-image img {
-  width: 1000px; /* Adjust as needed */
+  width: 950px; /* Adjust as needed */
   height: auto;
   border-radius: 10px; /* Optional: Adds rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Adds a subtle shadow */
-  margin-bottom: 20px; /* Space between the image and the title */
+  margin-bottom: -200px; /* Space between the image and the title */
   top: 50%;
   left: 50%;
 }
@@ -51,10 +54,7 @@
 
 /* Game Container Styles */
 #game-container {
-  text-align: center;
-  padding: 20px;
-  max-width: 600px;
-  margin: 0 auto;
+
 }
 
 #story-text {
@@ -157,4 +157,70 @@
 #start-button img:hover {
   transform: scale(1.05); /* Slightly enlarge on hover */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: aquamarine;
+  overflow: hidden;
+}
+
+.player{
+  position: relative;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: green;
+  top: 0px; 
+  left: 0px;
+}
+
+.npc {
+  position: relative;
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+}
+
+.one {
+  top: 100px;
+  left: 400px;
+  background-color: red;
+}
+
+.two {
+  top: -100px;
+  left: 800px;
+  background-color: orange;
+}
+.three {
+  top: 10px;
+  left: 1100px;
+  background-color: yellow;
+}
+.four {
+  top: 100px;
+  left: 600px;
+  background-color: indianred;
+}
+
+#game-container {
+  visibility: hidden;
+  position: fixed;
+  background-color: black;
+  top: 500px;
+  width: 100vw;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pixelify-sans {
+  font-family: 'Pixelify Sans', serif;
+  font-weight: 400; /* or any value between 400 and 700 */
+  font-style: normal;
 }

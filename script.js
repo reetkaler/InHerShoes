@@ -7,7 +7,7 @@ const feedbackText = document.getElementById('feedback-text');
 const scenarioText = document.getElementById("scenario-text");
 
 
-let currentScenarioIndex = 1;
+let currentScenarioIndex = 0;
 
 const scenarios = [
   {
@@ -32,7 +32,7 @@ const scenarios = [
 //Lets player move their character using arrow keys 
 const player = document.querySelector(".player");
 const container = document.querySelector(".container");
-const speed = 50; // Pixels per key press
+const speed = 10; // Pixels per key press
 
 let posX = 0, posY = 0; // Initial position
 
@@ -75,13 +75,12 @@ document.addEventListener("keydown", (event) => {
     
     checkCollision();
 });
+const npc = document.querySelector(".npc");
+const playerRect = player.getBoundingClientRect();
+const npcRect = npc.getBoundingClientRect();
 
 //checks if player has collided with NPC
 function checkCollision() {
-    const npc = document.querySelector(".npc");
-    const playerRect = player.getBoundingClientRect();
-    const npcRect = npc.getBoundingClientRect();
-
     if (
         playerRect.left < npcRect.right &&
         playerRect.right > npcRect.left &&
@@ -96,18 +95,38 @@ function checkCollision() {
 }
 
 // Load the current scenario
+// function loadScenario() {
+//   const scenarioText = document.querySelector(".scenario-text")
+//   scenarioText.style.display = "visible"
+//   if (currentScenarioIndex < scenarios.length) {
+//     //seoutputs the story of the scenario text 
+//     scenarioText.innerText = scenarios[currentScenarioIndex].story;
+//   } else {
+//     //this is if player has run through all the scenarios. 
+//     storyText.textContent = "Congratulations! You've completed all scenarios.";
+//     playerInput.style.display = 'hidden';
+//     submitButton.style.display = 'hidden';
+//   }
+// }
+
 function loadScenario() {
-  const scenarioText = document.querySelector(".scenario-text")
-  if (currentScenarioIndex < scenarios.length) {
-    //seoutputs the story of the scenario text 
-    scenarioText.innerText = scenarios[currentScenarioIndex].story;
-  } else {
-    //this is if player has run through all the scenarios. 
-    storyText.textContent = "Congratulations! You've completed all scenarios.";
-    playerInput.style.display = 'none';
-    submitButton.style.display = 'none';
-  }
+  const gameContainer = document.querySelector("#game-container");
+  gameContainer.style.display = "visible";
+
+  // if (currentScenarioIndex < scenarios.length) {
+  //   //seoutputs the story of the scenario text 
+  //   scenarioText.innerText = scenarios[currentScenarioIndex].story;
+  // } else {
+  //   //this is if player has run through all the scenarios. 
+  //   storyText.textContent = "Congratulations! You've completed all scenarios.";
+  //   playerInput.style.display = 'hidden';
+  //   submitButton.style.display = 'hidden';
+  // }
 }
+
+
+
+
 //Need to ask user for input, and add in the next button
 //users input replaces the story text
 //user's response recorded. 
