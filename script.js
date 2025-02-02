@@ -107,24 +107,29 @@ function isColliding(x, y) {
   return false;
 }
 
-
+let currentCollidingNpc = null; 
 function checkCollision() {
-  const playerRect = player.getBoundingClientRect();
-  const npcs = document.querySelectorAll(".npc");
+    const playerRect = player.getBoundingClientRect();
+    const npcs = document.querySelectorAll(".npc");
 
-  npcs.forEach((npc, index) => {
-      const npcRect = npc.getBoundingClientRect();
+    npcs.forEach((npc, index) => {
+        const npcRect = npc.getBoundingClientRect();
 
-      if (
-          playerRect.left < npcRect.right &&
-          playerRect.right > npcRect.left &&
-          playerRect.top < npcRect.bottom &&
-          playerRect.bottom > npcRect.top
-      ) {
-          console.log("Collided with NPC:", index);
-          loadScenario(index); 
-      }
-  });
+        if (
+            playerRect.left < npcRect.right &&
+            playerRect.right > npcRect.left &&
+            playerRect.top < npcRect.bottom &&
+            playerRect.bottom > npcRect.top
+        ) {
+            if (currentCollidingNpc !== index) {
+                console.log("Collided with NPC:", index);
+                loadScenario(index);
+                currentCollidingNpc = index;
+            }
+        } else if (currentCollidingNpc === index) {
+            currentCollidingNpc = null; // Reset when moving away
+        }
+    });
 }
 
 function loadScenario(index) {
