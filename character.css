@@ -50,7 +50,6 @@
    
 }
 
-
 #game-container {
     visibility: hidden;
     position: fixed;
@@ -66,6 +65,8 @@
     padding: 90px 60px;
     max-width: 2000px;
     margin: 0 auto;
+    font-family: 'Pixelify Sans', serif;
+
 }
 
 .text-bubble {
@@ -83,8 +84,13 @@
 }
 
 .guy {
-    margin-left: 1375px;
-    size: 200%;
+    position: fixed;
+    background-image: url("img/npc3.png");
+    background-size: cover;
+    height: 250px;
+    width: 150px;
+    top: 400px;
+    left: 1540px;
 }
 
 button {

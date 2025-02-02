@@ -143,7 +143,7 @@ function checkCollision() {
           }
         } else if (currentCollidingNpc === index) {
           currentCollidingNpc = null; // Reset when moving away
-          clearScenario();
+          clearScenario(  );
       }
   });
 }
@@ -161,6 +161,10 @@ function loadScenario(index) {
   document.getElementById("option2").innerText = scenarios[index].option2;
   const storyText = document.querySelector("#story-text");
   const feedbackText = document.querySelector("#feedback-text");
+
+  
+  option1.style.display = "inline-block"; 
+  option2.style.display = "inline-block";
   
   if (gameContainer.style.visibility === "visible") {
           gameContainer.style.visibility =  "hidden";
@@ -175,3 +179,15 @@ function loadScenario(index) {
 
   
 }
+
+option1.addEventListener("click", function() {
+  storyText.innerText = scenarios[currentScenarioIndex].feedback1; // Replace story with feedback
+  option1.style.display = "none"; // Hide button 1
+  option2.style.display = "none"; // Hide button 2
+});
+
+option2.addEventListener("click", function() {
+  storyText.innerText = scenarios[currentScenarioIndex].feedback2; // Replace story with feedback
+  option1.style.display = "none"; // Hide button 1
+  option2.style.display = "none"; // Hide button 2
+});
