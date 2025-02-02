@@ -1,2 +1,6 @@
 node_modules/
 backend/
+api.js
+package-lock.json
+package.json
+linkserver.js
