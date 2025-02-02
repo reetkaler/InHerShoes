@@ -175,6 +175,9 @@ if (playerResponse === correctResponse) {
 
 submitButton.addEventListener('click', checkResponse);
 }*/
+
+
+
 }
 
 
