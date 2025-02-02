@@ -140,7 +140,7 @@ function loadScenario(index) {
 //prints out story 
   storyText.innerHTML = scenarios[index].story;
 //prompts user response and stores it 
-  let response = prompt("How would you respond?");
+  let response = prompt(scenarios[index].story);
   console.log(response); 
   //outputs user response
   storyText.innerHTML = response; 
