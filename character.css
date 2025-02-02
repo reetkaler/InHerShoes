@@ -1,10 +1,3 @@
-/* Office rectangles */
-.wall {
-    position: absolute;
-    background-color: black;
-    z-index: 10; /* Ensures walls stay on top */
-}
-
 .container {
     position: fixed;
     width: 100vw;
@@ -28,40 +21,41 @@
 
 .npc {
     position: fixed;
-    background-color: blue;
     width: 100px;
     height: 100px;
 }
 
 .one {
-    top: 100px;
-    left: 400px;
+    position: relative;
+    top: 120px;
+    left: 750px;
+    background-image: url('/img/dwight.png');
+    background-size: cover;
+    z-index: 1;
     background-color: red;
 }
 
 .two {
-    top: 400px;
-    left: 800px;
+    top: 500px;
+    left: 1380px;
+    background-image: url('/img/npc2.png');
+    background-size: cover;
+    z-index: 1;
     background-color: orange;
     
 }
 
 .three {
-    top: 200px;
-    left: 1100px;
-    background-color: yellow;
+    position: relative;
+    background-image: url('img/npc3.png');
+    background-size: cover;
 }
 
-.four {
-    top: 500px;
-    left: 200px;
-    background-color: indianred;
-}
 
 #game-container {
     visibility: hidden;
     position: fixed;
-    background-color: black;
+    background-color: rgb(223, 148, 148);
     top: 500px;
     width: 100vw;
     height: 100%;
@@ -70,4 +64,19 @@
     max-width: 600px;
     margin: 0 auto;
 }
+
+.text-bubble {
+    position: absolute;
+    top: -100px; /* Adjust based on NPC position */
+    left: 50%;
+    transform: translateX(-50%);
+    background-image: url('bubble.png'); /* Your text bubble image */
+    background-size: cover;
+    padding: 20px;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    display: none; /* Hidden by default */
+}
+
 /* sorry */

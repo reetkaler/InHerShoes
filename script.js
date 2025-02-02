@@ -10,19 +10,19 @@ let currentScenarioIndex = 0;
 
 const scenarios = [
   {
-    story: "Your coworker interrupts you during a meeting and takes credit for your idea. What do you say?",
-    correctResponse: "I appreciate your input, but I’d like to clarify that this was my idea.",
-    feedback: "This response is assertive and professional. It ensures your contribution is recognized without being confrontational."
+    story: "During a team meeting, your manager says, “It’s great that you’re able to keep up with all the tasks, even with everything going on in your personal life.” Everyone laughs, and it feels like the compliment is based on the lowered expectation of your competence because of your gender.",
+    correctResponse: "Thank you, but I believe all of us here are balancing responsibilities equally well. I’d appreciate it if we could focus on the work rather than personal lives.",
+    feedback: "This response firmly sets boundaries on personal comments while subtly addressing the implicit bias that may be present. It redirects the conversation to the task at hand, reinforcing professionalism without letting the comment slide."
   },
   {
-    story: "Your manager assigns you extra work without considering your current workload. How do you respond?",
+    story: "During a casual conversation at work, someone says, “Oh, you’re so good at these tasks—I'm impressed, I didn’t expect that from you.", 
     correctResponse: "I’m currently working on X, Y, and Z. Can we prioritize these tasks or adjust the deadlines?",
-    feedback: "This response communicates your workload clearly and suggests a solution, showing professionalism and time management skills."
+    feedback: "I’m glad to hear that! I believe everyone here is capable of excelling, and we all bring valuable skills to the table."
   },
   {
-    story: "A colleague makes a sexist joke in front of the team. What do you do?",
-    correctResponse: "That comment is inappropriate and makes me uncomfortable. Let’s keep the conversation professional.",
-    feedback: "This response addresses the issue directly and sets boundaries, promoting a respectful workplace."
+    story: "During a project discussion, your coworker says, “I never thought you’d be the one to come up with that solution! Good for you!”",
+    correctResponse: "I appreciate the recognition, but my solution is just one part of the team’s hard work. Let’s keep collaborating to build on it",
+    feedback: "This response asserts your contribution and emphasizes the team effort, deflecting any unintended undermining of your abilities based on gender expectations."
   }
 ];
 
@@ -107,24 +107,29 @@ function isColliding(x, y) {
   return false;
 }
 
-
+let currentCollidingNpc = null; 
 function checkCollision() {
-  const playerRect = player.getBoundingClientRect();
-  const npcs = document.querySelectorAll(".npc");
+    const playerRect = player.getBoundingClientRect();
+    const npcs = document.querySelectorAll(".npc");
 
-  npcs.forEach((npc, index) => {
-      const npcRect = npc.getBoundingClientRect();
+    npcs.forEach((npc, index) => {
+        const npcRect = npc.getBoundingClientRect();
 
-      if (
-          playerRect.left < npcRect.right &&
-          playerRect.right > npcRect.left &&
-          playerRect.top < npcRect.bottom &&
-          playerRect.bottom > npcRect.top
-      ) {
-          console.log("Collided with NPC:", index);
-          loadScenario(index); 
-      }
-  });
+        if (
+            playerRect.left < npcRect.right &&
+            playerRect.right > npcRect.left &&
+            playerRect.top < npcRect.bottom &&
+            playerRect.bottom > npcRect.top
+        ) {
+            if (currentCollidingNpc !== index) {
+                console.log("Collided with NPC:", index);
+                loadScenario(index);
+                currentCollidingNpc = index;
+            }
+        } else if (currentCollidingNpc === index) {
+            currentCollidingNpc = null; // Reset when moving away
+        }
+    });
 }
 
 function loadScenario(index) {
@@ -140,7 +145,7 @@ function loadScenario(index) {
 //prints out story 
   storyText.innerHTML = scenarios[index].story;
 //prompts user response and stores it 
-  let response = prompt("How would you respond?");
+  let response = prompt(scenarios[index].story);
   console.log(response); 
   //outputs user response
   storyText.innerHTML = response; 
@@ -170,6 +175,9 @@ if (playerResponse === correctResponse) {
 
 submitButton.addEventListener('click', checkResponse);
 }*/
+
+
+
 }
 
 
