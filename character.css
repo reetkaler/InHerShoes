@@ -27,28 +27,28 @@
 
 .one {
     position: relative;
-    top: 120px;
-    left: 750px;
-    background-image: url('/img/dwight.png');
+    top: -130px;
+    left: 470px;
     background-size: cover;
     z-index: 1;
-    background-color: red;
-}
+    }
 
 .two {
-    top: 500px;
+    top: 330px;
     left: 1380px;
-    background-image: url('/img/npc2.png');
+    
     background-size: cover;
     z-index: 1;
-    background-color: orange;
+    
     
 }
 
 .three {
-    position: relative;
-    background-image: url('img/npc3.png');
+    top: 660px;
+    left: 935px;
+    
     background-size: cover;
+   
 }
 
 
@@ -80,8 +80,7 @@
 }
 
 .guy {
-    margin-left: 1175px;
-    margin-bottom: 1400px;
+    margin-left: 1375px;
     size: 200%;
 }
 /* sorry */

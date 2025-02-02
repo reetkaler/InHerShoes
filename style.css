@@ -33,7 +33,7 @@
 #logo {
   width: 300px; /* Adjust as needed */
   position: absolute;
-  top: 150px; /* Distance from the top */
+  top: -50px; /* Distance from the top */
   left: 50%;
   transform: translateX(-50%); /* Center the logo horizontally */
 }
@@ -232,6 +232,15 @@
   font-family: 'Pixelify Sans', serif;
   font-weight: 400; /* or any value between 400 and 700 */
   font-style: normal;
+}
+
+.score {
+  position: fixed;
+  top: 100px;
+  left: 800px;
+  z-index: 1;
+  background-color: white;
+  color: black;
 }
 
 /* sorry */

@@ -5,6 +5,14 @@ const playerInput = document.getElementById('player-input');
 const submitButton = document.getElementById('submit-button');
 const feedbackText = document.getElementById('feedback-text');
 const scenarioText = document.getElementById("scenario-text");
+const currentScore = document.getElementById("current-score");
+
+
+// var audio = new Audio("./audio/bgmusic.mp3");
+// audio.play();
+
+// let score = 0;
+// currentScore.innerHTML = score;
 
 let currentScenarioIndex = 0;
 
@@ -39,6 +47,7 @@ let posX = 0, posY = 0; // Initial position
 const containerRect = container.getBoundingClientRect();
 const charWidth = player.offsetWidth;
 const charHeight = player.offsetHeight;
+
 
 document.addEventListener("keydown", (event) => {
   console.log(event);
@@ -143,6 +152,7 @@ function loadScenario(index) {
   const storyText = document.querySelector("#story-text");
   const feedbackText = document.querySelector("#feedback-text");
 
+
   
   if (gameContainer.style.visibility === "visible") {
           gameContainer.style.visibility =  "hidden";
@@ -154,9 +164,16 @@ function loadScenario(index) {
 //prompts user response and stores it 
   let response = prompt(scenarios[index].story);
   console.log(response); 
+
+  if (response === scenarios[index].correctResponse) {
+    score++;
+    currentScore.innerHTML = score;
+  }
   //outputs user response
   storyText.innerHTML = response; 
   feedbackText.innerHTML = scenarios[index].feedback;
+
+}
 // Check the player's response
 /*
 const playerResponse = playerInput.value.trim().toLowerCase();
@@ -182,27 +199,27 @@ if (playerResponse === correctResponse) {
 
 submitButton.addEventListener('click', checkResponse);
 }*/
-}
-async function sendToBackend(scenario, userResponse) {
-  const response = await fetch('http://localhost:3000/analyze-response', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      scenario,
-      userResponse,
-    }),
-  });
+// }
+// async function sendToBackend(scenario, userResponse) {
+//   const response = await fetch('http://localhost:3000/analyze-response', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({
+//       scenario,
+//       userResponse,
+//     }),
+//   });
 
-  if (response.ok) {
-    const data = await response.json();
-    console.log('Feedback:', data.feedback);
-  } else {
-    console.error('Error sending data to backend');
-  }
-}
+//   if (response.ok) {
+//     const data = await response.json();
+//     console.log('Feedback:', data.feedback);
+//   } else {
+//     console.error('Error sending data to backend');
+//   }
+// }
 
-// Call the function with your data
-sendToBackend('Some scenario', 'User response text');
+// // Call the function with your data
+// sendToBackend('Some scenario', 'User response text');
 
