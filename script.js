@@ -165,10 +165,10 @@ function loadScenario(index) {
   let response = prompt(scenarios[index].story);
   console.log(response); 
 
-  if (response === scenarios[index].correctResponse) {
-    score++;
-    currentScore.innerHTML = score;
-  }
+  // if (response === scenarios[index].correctResponse) {
+  //   score++;
+  //   currentScore.innerHTML = score;
+  // }
   //outputs user response
   storyText.innerHTML = response; 
   feedbackText.innerHTML = scenarios[index].feedback;
