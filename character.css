@@ -14,7 +14,7 @@
     height: 200px;
     width: 200px;
     border-radius: 50%;
-    background-image: url('/img/mainChar.png');
+    background-image: url('/img/char.png');
     background-size: cover;
     z-index: 1;
 }
@@ -79,4 +79,9 @@
     display: none; /* Hidden by default */
 }
 
+.guy {
+    margin-left: 1175px;
+    margin-bottom: 1400px;
+    size: 200%;
+}
 /* sorry */

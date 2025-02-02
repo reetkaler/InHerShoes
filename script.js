@@ -109,32 +109,39 @@ function isColliding(x, y) {
 
 let currentCollidingNpc = null; 
 function checkCollision() {
-    const playerRect = player.getBoundingClientRect();
-    const npcs = document.querySelectorAll(".npc");
+  const playerRect = player.getBoundingClientRect();
+  const npcs = document.querySelectorAll(".npc");
 
-    npcs.forEach((npc, index) => {
-        const npcRect = npc.getBoundingClientRect();
+  npcs.forEach((npc, index) => {
+      const npcRect = npc.getBoundingClientRect();
 
-        if (
-            playerRect.left < npcRect.right &&
-            playerRect.right > npcRect.left &&
-            playerRect.top < npcRect.bottom &&
-            playerRect.bottom > npcRect.top
-        ) {
-            if (currentCollidingNpc !== index) {
-                console.log("Collided with NPC:", index);
-                loadScenario(index);
-                currentCollidingNpc = index;
-            }
+      if (
+          playerRect.left < npcRect.right &&
+          playerRect.right > npcRect.left &&
+          playerRect.top < npcRect.bottom &&
+          playerRect.bottom > npcRect.top
+      ) {
+          if (currentCollidingNpc !== index) {
+            console.log("Collided with NPC:", index);
+            loadScenario(index); 
+            currentCollidingNpc = index;
+          }
         } else if (currentCollidingNpc === index) {
-            currentCollidingNpc = null; // Reset when moving away
-        }
-    });
+          currentCollidingNpc = null; // Reset when moving away
+          clearScenario();
+      }
+  });
+}
+
+function clearScenario() {
+  const gameContainer = document.querySelector("#game-container");
+  gameContainer.style.visibility === "visible";
 }
 
 function loadScenario(index) {
   const gameContainer = document.querySelector("#game-container");
   const storyText = document.querySelector("#story-text");
+  const feedbackText = document.querySelector("#feedback-text");
 
   
   if (gameContainer.style.visibility === "visible") {
@@ -149,7 +156,7 @@ function loadScenario(index) {
   console.log(response); 
   //outputs user response
   storyText.innerHTML = response; 
-  
+  feedbackText.innerHTML = scenarios[index].feedback;
 // Check the player's response
 /*
 const playerResponse = playerInput.value.trim().toLowerCase();
@@ -175,9 +182,27 @@ if (playerResponse === correctResponse) {
 
 submitButton.addEventListener('click', checkResponse);
 }*/
+}
+async function sendToBackend(scenario, userResponse) {
+  const response = await fetch('http://localhost:3000/analyze-response', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      scenario,
+      userResponse,
+    }),
+  });
 
-
-
+  if (response.ok) {
+    const data = await response.json();
+    console.log('Feedback:', data.feedback);
+  } else {
+    console.error('Error sending data to backend');
+  }
 }
 
+// Call the function with your data
+sendToBackend('Some scenario', 'User response text');
 
