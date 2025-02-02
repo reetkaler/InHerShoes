@@ -1,23 +1,33 @@
+/* Office rectangles */
+.wall {
+    position: absolute;
+    background-color: black;
+    z-index: 10; /* Ensures walls stay on top */
+}
+
 .container {
     position: fixed;
     width: 100vw;
     height: 100vh;
     background-color: aquamarine;
     overflow: hidden;
+    background-image: url('/img/officeBg.jpg'); /* Add your image file path here */
+    background-size: cover; /* Ensures the image covers the entire container */
+    background-position: center; /* Centers the image */
 }
 
-.player{
+.player {
     position: relative;
-    height: 100px;
-    width: 100px;
+    height: 200px;
+    width: 200px;
     border-radius: 50%;
-    background-color: green;
-    top: 0px; 
-    left: 0px;
+    background-image: url('/img/mainChar.png');
+    background-size: cover;
+    z-index: 1;
 }
 
 .npc {
-    position: relative;
+    position: fixed;
     background-color: blue;
     width: 100px;
     height: 100px;
@@ -30,17 +40,34 @@
 }
 
 .two {
-    top: -100px;
+    top: 400px;
     left: 800px;
     background-color: orange;
+    
 }
+
 .three {
-    top: 10px;
+    top: 200px;
     left: 1100px;
     background-color: yellow;
 }
+
 .four {
-    top: 100px;
-    left: 600px;
+    top: 500px;
+    left: 200px;
     background-color: indianred;
 }
+
+#game-container {
+    visibility: hidden;
+    position: fixed;
+    background-color: black;
+    top: 500px;
+    width: 100vw;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+/* sorry */

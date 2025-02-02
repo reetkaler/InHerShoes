@@ -13,15 +13,27 @@
   color: #fff; /* Light text color for better contrast */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow to text for readability */
 }
-/*office rectangles*/
-#office-obj{
-  
+
+#title-screen {
+  text-align: center;
+  padding: 20px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/img/titleBg.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #fff; /* Light text color for better contrast */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds shadow to text for readability */
 }
+
 /* Logo Styles */
 #logo {
   width: 300px; /* Adjust as needed */
   position: absolute;
-  top: -50px; /* Distance from the top */
+  top: 150px; /* Distance from the top */
   left: 50%;
   transform: translateX(-50%); /* Center the logo horizontally */
 }
@@ -43,18 +55,31 @@
 }
 
 #description {
-  font-size: 1.2rem;
-  margin: 20px auto;
+  font-size: 2rem;
+  margin: -240px;
   max-width: 600px;
   line-height: 1.6;
   color: #fff; /* Light text color for better contrast */
+  z-index: 2;
 }
 
+/* Start Game Button as an Image */
+#start-button {
+  cursor: pointer; /* Show pointer cursor on hover */
+  margin-top:270px; /* Space above the button */
+}
 
+#start-button img {
+  width: 200px; /* Adjust as needed */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+}
 
-/* Game Container Styles */
-#game-container {
-
+#start-button img:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }
 
 #story-text {
@@ -140,24 +165,7 @@
   display: none;
 }
 
-/* Start Game Button as an Image */
-#start-button {
-  cursor: pointer; /* Show pointer cursor on hover */
-  margin-top: 20px; /* Space above the button */
-}
 
-#start-button img {
-  width: 200px; /* Adjust as needed */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 10px; /* Optional: Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a subtle shadow */
-  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
-}
-
-#start-button img:hover {
-  transform: scale(1.05); /* Slightly enlarge on hover */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
-}
 
 .container {
   position: fixed;

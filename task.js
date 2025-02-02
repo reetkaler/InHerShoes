@@ -22,3 +22,5 @@ function changeImage(){
         taskImage.src = images[0];
     }
 }  
+
+const seven = 7;

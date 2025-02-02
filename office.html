@@ -6,12 +6,7 @@
   <title>Office</title>
   <link rel="stylesheet" href="./character.css">
   <style>
-    .rectangle{
-        width: 200px;
-        height: 100 px;
-        background-color: black;
-        border: 2px solid black;
-    }
+  
   </style>
 </head>
 <body>
@@ -19,19 +14,21 @@
 
   <div class="container">
     <div class="player"></div>
-    <div class="npc one"></div>
-    <div class="npc two"></div>
-    <div class="npc three"></div>
-    <div class="npc four"></div>
+    <div class="npc one" data-index="0"></div>
+    <div class="npc two" data-index="1"></div>
+    <div class="npc three" data-index="2"></div>
+
   </div>  
-  
+  <!--black box for dialoge-->
   <div id="game-container">
-    <div id="story-text"></div>
-    <textarea id="player-input" placeholder="Type your response here..."></textarea>
+    
+    <div id="story-text"></div><!--change this text-->
+        <!--delete the button?-->
     <button id="submit-button"></button>
     <div id="feedback-text"></div>
+    
   </div>
-    <!--Task box-->
+    <!--Task box
   <div id="task-box" visibility ="hidden">
     <ul id="bullet-points">
         <li>First bullet point</li>
@@ -39,15 +36,15 @@
         <li>Third bullet point</li>
         <li>Fourth bullet point</li>
     </ul>
-  </div>
-  <!--Scenario box and text-->
-  <div id="scenario-text" visible ="hidden">
-      
-    TEXT
-
-  </div>
-  <div id="office-obj"></div>
+  </div>-->
 
   <script src="./script.js" charset="utf-8"></script>
 </body>
+
+<body>
+  
+</body>
 </html>
+
+
+<!-- just cause -->
