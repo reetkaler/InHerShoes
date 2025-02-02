@@ -133,23 +133,15 @@
 }
 
 /* Player and NPC Styles */
-#player, #npc {
+.player, .npc {
   height: 100px;
-  width: 100px;
-  border-radius: 50%;
   position: absolute;
   top: 225px; /* Start in the middle */
   left: 225px;
   display: none; /* Hidden by default */
 }
 
-#player {
-  background-color: green;
-}
 
-#npc {
-  background-color: red;
-}
 
 #scenario-box {
   width: 60%;
