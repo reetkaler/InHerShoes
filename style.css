@@ -47,6 +47,7 @@
   margin-bottom: -200px; /* Space between the image and the title */
   top: 50%;
   left: 50%;
+  z-index: 1;
 }
 
 #title-screen h1 {
@@ -232,3 +233,5 @@
   font-weight: 400; /* or any value between 400 and 700 */
   font-style: normal;
 }
+
+/* sorry */
